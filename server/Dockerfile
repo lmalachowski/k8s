@@ -1,5 +1,6 @@
-FROM httpd
-
-COPY index.js htdocs/index.js
-COPY package-lock.json htdocs/package-lock.json
-COPY package.json htdocs/package.json
+FROM node:alpine
+WORKDIR "/app"
+COPY ./package.json ./
+RUN npm install
+COPY . .
+CMD ["npm", "run", "start"]
