@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+header {
+    border-bottom: 2px solid black;
+    margin: 10vh;
+}
+
+header h1 {
+    font-size: 7em;
+}
+
+#todo {
+    background-color: #468C98;
+    height: 66vh;
+}
+
+h2 {
+    padding: 30px;
+    font-size: 2em;
+}
+
+input {
+    width: 35%;
+    background-color: #D9F9F5;
+    border-radius: 4px;
+    height: 3em;
+}
+
+ul {
+    list-style-type: none;
+    padding-top: 20px;
+}
+
+li {
+    display: flex;
+    padding-left: 30px;
+    line-height: 30px;
+    font-size: 1.3em;
+}
+
+.button{
+    display: flex;
+    font-size: 1.2em;
+    width: 30px;
+    color: darkred;
+}
+
+.button:hover{
+    cursor: pointer;
+    font-weight: 700;
+}
+

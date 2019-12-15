@@ -1,8 +1,7 @@
 var input = document.querySelector("input[type = 'text']");
 var ul = document.querySelector("ul");
 var spans = document.getElementsByTagName("span");
-var backend = backend.malachowski.svc.cluster.local
-
+var backend = "backend.malachowski.svc.cluster.local";
 
 (function loadTodo(){
   axios.get(backend + '/api/all')
@@ -27,13 +26,15 @@ input.addEventListener("keypress",function(keyPressed){
       var newTodo = this.value;
       this.value = " " ;
 
-      spanElement.append('usun');
+      spanElement.append('X ');
+      spanElement.className = "button";
       ul.appendChild(li).append(spanElement,newTodo);
 
-      axios.post(backend + 'api/todos', {
+      axios.post(backend + '/api/todos', {
         todo: newTodo,
       })
 
     }
     deleteTodo();
   });
+
