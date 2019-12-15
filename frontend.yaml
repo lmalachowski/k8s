@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: to_do
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+     app: to_do
+  template:
+    metadata:
+      labels:
+        app: to_do
+    spec:
+      containers:
+      - name: frontend
+        image: lmalachowski/malachowski_k8s:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80

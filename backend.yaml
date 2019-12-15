@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: to_do_back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+     app: to_do_back
+  template:
+    metadata:
+      labels:
+        app: to_do_back
+    spec:
+      containers:
+      - name: backend
+        image: lmalachowski/malachowski_k8s:server 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000

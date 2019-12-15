@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-staging-malachowski
+spec:
+  acme:
+    email: malachowski.l@gmail.com
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: example-issuer-account-key nginx
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
