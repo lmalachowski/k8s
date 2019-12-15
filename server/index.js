@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-app.get('/all', (req, res) => {
+app.get('/api/all', (req, res) => {
   connection.query('SELECT * FROM tasks', function (err, rows, fields) {
     if (err) throw err;
 
@@ -25,7 +25,7 @@ app.get('/all', (req, res) => {
   });
 });
 
-app.post('/todos', async (req, res) => {
+app.post('/api/todos', async (req, res) => {
   connection.query(`INSERT INTO tasks(${req.body.todo})`, function (err, rows, fields) {
     if (err) throw err;
 
@@ -33,7 +33,7 @@ app.post('/todos', async (req, res) => {
   });
 })
 
-app.delete('/todos', async (req, res) => {
+app.delete('/api/todos', async (req, res) => {
   connection.query(`DELETE FROM tasks WHERE name = '${req.body.todo}'`, function (err, rows, fields) {
     if (err) throw err;
 
