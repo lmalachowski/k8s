@@ -20,26 +20,25 @@ app.get('/all', (req, res) => {
   connection.query('SELECT * FROM tasks', function (err, rows, fields) {
     if (err) throw err;
 
-    console.log('getting all todos = ' rows[0]);
+    console.log('getting all todos = ', rows);
+    res.send(rows);
   });
 });
 
 app.post('/todos', async (req, res) => {
-  connection.query('', function (err, rows, fields) {
+  connection.query(`INSERT INTO tasks(${req.body.todo})`, function (err, rows, fields) {
     if (err) throw err;
 
     console.log('posting todo');
   });
-  //add todo (req.body.todo) to DB
 })
 
 app.delete('/todos', async (req, res) => {
-  connection.query('', function (err, rows, fields) {
+  connection.query(`DELETE FROM tasks WHERE name = '${req.body.todo}'`, function (err, rows, fields) {
     if (err) throw err;
 
     console.log('deleting todo');
   });
-  //delete todo (req.body.todo) from DB
 });
 
 app.listen(5000, err => {
