@@ -1,15 +1,17 @@
 var input = document.querySelector("input[type = 'text']");
 var ul = document.querySelector("ul");
 var spans = document.getElementsByTagName("span");
+var backend = backend.malachowski.svc.cluster.local
+
 
 (function loadTodo(){
-  axios.get('http://localhost:5000')
+  axios.get(backend + '/api/all')
 })();
 
 function deleteTodo(){
     for(let span of spans){
       span.addEventListener ("click",function (){
-        axios.delete('http://localhost:5000/todos', {
+        axios.delete(backend + '/api/todos', {
           todo: span.parentElement.lastChild.nodeValue.trimLeft(),
         })
         span.parentElement.remove();
@@ -28,7 +30,7 @@ input.addEventListener("keypress",function(keyPressed){
       spanElement.append('usun');
       ul.appendChild(li).append(spanElement,newTodo);
 
-      axios.post('http://localhost:5000/todos', {
+      axios.post(backend + 'api/todos', {
         todo: newTodo,
       })
 
