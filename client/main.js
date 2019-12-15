@@ -1,7 +1,7 @@
 var input = document.querySelector("input[type = 'text']");
 var ul = document.querySelector("ul");
 var spans = document.getElementsByTagName("span");
-var backend = "iii.mzylowski.pl";
+var backend = "http://iii.mzylowski.pl";
 
 (function loadTodo(){
   axios.get(backend + '/api/all')
